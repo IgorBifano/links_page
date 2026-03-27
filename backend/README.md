@@ -1,11 +1,33 @@
 # Backend
 
-Diretório reservado para a camada de servidor deste projeto.
+API dedicada ao fluxo de captacao de leads e automacao inicial de e-mails.
 
-Uso sugerido para os próximos passos:
+## Responsabilidades
 
-- `src/` para código da API
-- `.env` para variáveis de ambiente locais
-- `tests/` para testes de integração ou unidade
+- persistir leads em SQLite
+- validar cadastro e impedir duplicidade
+- agendar e executar a sequencia inicial de e-mails
+- registrar logs de envio
+- permitir descadastro
+- expor endpoints admin para consulta futura
 
-O frontend está isolado em `../frontend`.
+## Como rodar
+
+1. `copy .env.example .env`
+2. `npm install`
+3. `npm run dev`
+
+## Provedores de e-mail
+
+- `console`: desenvolvimento local
+- `smtp`: servidor SMTP tradicional
+- `resend`: integracao via API HTTP
+
+## Estrutura
+
+- `src/config`: leitura e validacao de ambiente
+- `src/lib`: banco, logs e utilitarios
+- `src/repositories`: persistencia
+- `src/email`: campanhas, templates e provedores
+- `src/services`: regras de negocio e automacao
+- `src/routes`: rotas publicas e administrativas

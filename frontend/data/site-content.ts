@@ -70,7 +70,7 @@ export const siteContent: SiteContent = {
     title: "Formacao Engenharia de Aplicacao",
     description:
       "Uma trilha premium sobre IA, software e sistemas reais. Estruturada para quem quer construir com criterio tecnico e visao de produto.",
-    href: "#aprender",
+    href: "/lista-espera",
     badge: "Vagas e lista de espera"
   },
   linkGroups: [
@@ -82,7 +82,7 @@ export const siteContent: SiteContent = {
         {
           title: "Formacao Engenharia de Aplicacao",
           description: "Programa principal com foco em IA, arquitetura e entrega de software.",
-          href: "#",
+          href: "/lista-espera",
           icon: "graduation",
           accent: "from-accent/20 to-transparent"
         },
@@ -96,7 +96,7 @@ export const siteContent: SiteContent = {
         {
           title: "Lista de espera",
           description: "Receba atualizacoes, abertura de vagas e novidades antes do lancamento.",
-          href: "#",
+          href: "/lista-espera",
           icon: "star",
           accent: "from-fuchsia-400/20 to-transparent"
         }
