@@ -1,46 +1,26 @@
-# Igor Bifano Hub
+# Links Page Workspace
 
-Hub premium de links pessoais construído com Next.js, TypeScript, Tailwind CSS e Framer Motion.
+Estrutura do projeto organizada por responsabilidade.
 
-## Como rodar
+## Pastas
 
-1. Instale as dependências com `npm install`
-2. Inicie o ambiente local com `npm run dev`
-3. Acesse `http://localhost:3000`
+- `frontend/`: aplicação Next.js com a interface premium
+- `backend/`: espaço reservado para API, integrações e serviços futuros
+- `docs/`: instruções e tarefas
+- `scripts/`: utilitários de manutenção
 
-## Como editar conteúdo
+## Frontend
 
-Todo o conteúdo principal está em `data/site-content.ts`.
+Para rodar a aplicação:
 
-Você pode alterar:
+1. `cd frontend`
+2. `npm install`
+3. `npm run dev`
 
-- dados do perfil
-- CTA principal
-- grupos de links
-- itens de autoridade
-- links do rodapé
+Os comandos do Next.js devem ser executados dentro de `frontend/`, porque a raiz do repositório agora funciona como workspace.
 
-## Como trocar imagem
+## Backend
 
-O bloco visual do hero está em `components/hero.tsx`.
+O diretório `backend/` foi preparado para separar lógica de servidor da interface.
 
-Atualmente ele usa um avatar tipográfico com as iniciais `IB`. Para trocar por uma imagem real:
-
-1. adicione a imagem na pasta `public/`
-2. substitua o avatar atual por `next/image`
-3. ajuste tamanho e bordas no card visual
-
-## Como alterar cores
-
-As cores principais estão centralizadas em `tailwind.config.ts`.
-
-Os gradientes e overlays complementares ficam em:
-
-- `app/globals.css`
-- `components/page-background.tsx`
-
-## Estrutura
-
-- `app/`: layout e página principal
-- `components/`: componentes reutilizáveis
-- `data/`: conteúdo separado da apresentação
+No momento ele contém apenas a estrutura inicial e documentação.
