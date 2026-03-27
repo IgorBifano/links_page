@@ -14,26 +14,26 @@ import {
   Star,
   Waves
 } from "lucide-react";
-import type { LinkItem } from "@/data/site-content";
+import type { LinkIcon, LinkItem } from "@/data/site-content";
 
 type LinkCardProps = {
   link: LinkItem;
 };
 
-export function LinkCard({ link }: LinkCardProps) {
-  const iconMap = {
-    graduation: GraduationCap,
-    sparkles: Sparkles,
-    star: Star,
-    briefcase: BriefcaseBusiness,
-    waves: Waves,
-    file: FileText,
-    book: BookOpen,
-    message: MessageCircle,
-    instagram: Instagram,
-    mail: Mail
-  } satisfies Record<LinkItem["icon"], typeof GraduationCap>;
+const iconMap = {
+  graduation: GraduationCap,
+  sparkles: Sparkles,
+  star: Star,
+  briefcase: BriefcaseBusiness,
+  waves: Waves,
+  file: FileText,
+  book: BookOpen,
+  message: MessageCircle,
+  instagram: Instagram,
+  mail: Mail
+} satisfies Record<LinkIcon, typeof GraduationCap>;
 
+export function LinkCard({ link }: LinkCardProps) {
   const Icon = iconMap[link.icon];
 
   return (

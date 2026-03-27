@@ -12,7 +12,7 @@ type LinkGroupProps = {
 export function LinkGroup({ group, index }: LinkGroupProps) {
   return (
     <motion.section
-      id={group.title.toLowerCase()}
+      id={group.id}
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}

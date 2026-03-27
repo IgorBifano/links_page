@@ -1,22 +1,69 @@
+export type LinkIcon =
+  | "graduation"
+  | "sparkles"
+  | "star"
+  | "briefcase"
+  | "waves"
+  | "file"
+  | "book"
+  | "message"
+  | "instagram"
+  | "mail";
+
 export type LinkItem = {
   title: string;
   description: string;
   href: string;
-  icon: "graduation" | "sparkles" | "star" | "briefcase" | "waves" | "file" | "book" | "message" | "instagram" | "mail";
+  icon: LinkIcon;
   accent: string;
 };
 
 export type LinkGroupType = {
+  id: string;
   title: string;
   description: string;
   links: LinkItem[];
 };
 
-export const siteContent = {
+export type SiteContent = {
+  profile: {
+    name: string;
+    role: string;
+    bio: string;
+    highlights: string[];
+  };
+  primaryCta: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    href: string;
+    badge: string;
+  };
+  linkGroups: LinkGroupType[];
+  authority: Array<{
+    value: string;
+    label: string;
+  }>;
+  socialLinks: Array<{
+    label: string;
+    href: string;
+  }>;
+  footer: {
+    statement: string;
+    copyright: string;
+  };
+};
+
+export const siteContent: SiteContent = {
   profile: {
     name: "Igor Bifano",
     role: "Engenharia de software, IA aplicada e sistemas com profundidade.",
-    bio: "Hub de marca pessoal para centralizar formacao, projetos e pontos de contato com uma apresentacao objetiva, sofisticada e pronta para conversao."
+    bio: "Hub de marca pessoal para centralizar formacao, projetos e pontos de contato com uma apresentacao objetiva, sofisticada e pronta para conversao.",
+    highlights: [
+      "Software Architecture",
+      "Applied AI Systems",
+      "Education as leverage"
+    ]
   },
   primaryCta: {
     eyebrow: "Destaque Principal",
@@ -28,6 +75,7 @@ export const siteContent = {
   },
   linkGroups: [
     {
+      id: "aprender",
       title: "Aprender",
       description: "Entradas para quem quer acompanhar a formacao e os proximos lancamentos.",
       links: [
@@ -55,6 +103,7 @@ export const siteContent = {
       ]
     },
     {
+      id: "projetos",
       title: "Projetos",
       description: "Empresas e iniciativas com foco em execucao, tecnologia e estrutura.",
       links: [
@@ -82,6 +131,7 @@ export const siteContent = {
       ]
     },
     {
+      id: "conteudo",
       title: "Conteudo",
       description: "Pontos de contato para estudo continuo, referencias e publicacoes.",
       links: [
@@ -109,6 +159,7 @@ export const siteContent = {
       ]
     },
     {
+      id: "contato",
       title: "Contato",
       description: "Canais diretos para parcerias, conversas estrategicas e networking.",
       links: [
@@ -135,7 +186,7 @@ export const siteContent = {
         }
       ]
     }
-  ] satisfies LinkGroupType[],
+  ],
   authority: [
     { value: "+70h", label: "de conteudo estruturado" },
     { value: "IA + Sistemas", label: "foco em aplicacao real" },

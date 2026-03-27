@@ -2,26 +2,15 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Orbit } from "lucide-react";
+import { fadeUpVariant, motionEase } from "@/lib/motion";
 
 type HeroProps = {
   profile: {
     name: string;
     role: string;
     bio: string;
+    highlights: string[];
   };
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-      delay
-    }
-  })
 };
 
 export function Hero({ profile }: HeroProps) {
@@ -32,7 +21,7 @@ export function Hero({ profile }: HeroProps) {
           custom={0}
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          variants={fadeUpVariant}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.28em] text-accent/80"
         >
           <Orbit className="h-3.5 w-3.5" />
@@ -43,7 +32,7 @@ export function Hero({ profile }: HeroProps) {
           custom={0.08}
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          variants={fadeUpVariant}
           className="mt-6 max-w-3xl font-display text-4xl leading-none text-white sm:text-6xl"
         >
           {profile.name}
@@ -53,7 +42,7 @@ export function Hero({ profile }: HeroProps) {
           custom={0.16}
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          variants={fadeUpVariant}
           className="mt-5 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl"
         >
           {profile.role}
@@ -63,7 +52,7 @@ export function Hero({ profile }: HeroProps) {
           custom={0.24}
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          variants={fadeUpVariant}
           className="mt-6 max-w-2xl text-sm leading-7 text-muted sm:text-base"
         >
           {profile.bio}
@@ -73,7 +62,7 @@ export function Hero({ profile }: HeroProps) {
           custom={0.32}
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          variants={fadeUpVariant}
           className="mt-8 flex flex-wrap gap-3"
         >
           <a
@@ -92,7 +81,7 @@ export function Hero({ profile }: HeroProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        transition={{ duration: 0.8, ease: motionEase, delay: 0.1 }}
         className="relative mx-auto w-full max-w-sm"
       >
         <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-accent/20 via-cyan-400/10 to-transparent blur-2xl" />
@@ -109,11 +98,7 @@ export function Hero({ profile }: HeroProps) {
               </div>
             </div>
             <div className="mt-6 space-y-3">
-              {[
-                "Software Architecture",
-                "Applied AI Systems",
-                "Education as leverage"
-              ].map((item) => (
+              {profile.highlights.map((item) => (
                 <div
                   key={item}
                   className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-slate-200"
